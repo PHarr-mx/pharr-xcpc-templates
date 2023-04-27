@@ -8,3 +8,4 @@
 *.aux
 *.toc
 main.synctex.gz
+.DS_Store
