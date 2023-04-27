@@ -1,0 +1,17 @@
+\section{语法杂项}
+
+\subsection{#define 与 typedef}
+\verb|typedef|是用来给类型定义别名，是编译器处理的
+
+\verb|#define|是字面上进行宏定义用的，是在预处理阶段使用的
+\begin{lstlisting}
+#define STRING char * //宏定义
+STRING name , sign;//声明
+char * name , sign;//会被替换成这种的结果,只有 name 是指针
+// 所以定义类型时候应该回避 #define 而采用typedef
+typedef char * STRING;
+char * name , * sign;//会被替换成这种结果
+\end{lstlisting}
+
+\subsection{fill数组填充}
+\lstinputlisting{编程技巧和基础算法/语法杂项/fill.cpp}

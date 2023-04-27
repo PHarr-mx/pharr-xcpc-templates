@@ -1,0 +1,80 @@
+\section{数论}
+
+\subsection{整除}
+
+定义：若整数 b 除以非零整数 a ，商为整数且余数为零我们就说 b 能被 a 整除，或 a 整除 b 记作$a|b$
+
+\textbf{性质}
+\begin{enumerate}
+    \item 传递性，若$a|b,b|c$，则$a|c$
+    \item 组合性，若$a|b,a|c$则对于任意整数$m,n$均满足$a|mb+nc$
+    \item 自反性，对于任意的$n$，均有$n|n$
+    \item 对称性，若$a|b,b|a$则$a=b$
+\end{enumerate}
+
+\subsection{约数}
+\textbf{定义}
+若整数$n$除以整数$x$的余数为$0$，即$d$能整除$n$，则称$d$是$n$的约数，$n$是$d$的倍数，记为$d|n$
+\emph{算数基本定理}
+由算数基本定理得正整数N可以写作$N=p_1^{C_1}\times p_2^{C_2} \times p_3^{C_3} \cdots \times p_m^{C_m}$
+
+\textbf{分解质因数}
+
+分解成 $p_{1}\times _{2}\times p_{3}\times \cdots \ p_{n}$这种形式
+\lstinputlisting{数学知识/数论/分解质因数 1.cpp}
+
+分解成 $p_{1}^{k_{1}} \times p_{2}^{k_{2}} \times p_{3}^{k_{3}} \times \cdots \ p_{n}^{k_{n}}$
+\lstinputlisting{数学知识/数论/分解质因数 2.cpp}
+N的正约数个数为($\Pi$是连乘积的符号，类似$\sum$)
+
+\[
+(c_1+1)\times (c_2+1)\times \cdots (c_m+1)=\Pi_{i=1}^{m}(ci+1)
+\]
+
+$N$的所有正约数和为
+\[
+(1+p_1+p_1^2+\cdots +p_1^{c_1})\times\cdots\times(1+p_m+p_m^2+\cdots +p_m^{c_m})=\prod_{i=1}^{m}(\sum_{j=0}^{c_i}(p_i)^j)
+\]
+
+\subsection{ GCD 和 LCM }
+
+\textbf{性质} $a\times b = gcd(a,b)\times\lcm(a,b)$
+
+通过性质可以得到最小公倍数的求法就是
+\begin{lstlisting}[language = c]
+    int lcm( int x , int y ){
+        return a / gcd( x , y ) * b;
+    }
+\end{lstlisting}
+最大公倍数的求法有\textbf{更相减损术}和\textbf{辗转相除法}
+
+\lstinputlisting{数学知识/数论/GCD.cpp}
+
+一般情况下直接用库函数，库函数的实现是辗转相除法，如果遇到高精度的话（高精度取模分困难）可以用更相减损术来代替
+
+\textbf{定理} 对于斐波那契数列$Feb_i$有$Feb_{gcd(a,b)}=gcd(Feb_a , Feb_b)$
+
+\subsection{质数}
+判断质数
+\lstinputlisting{数学知识/数论/判断质数.cpp}
+埃式筛
+\lstinputlisting{数学知识/数论/埃式筛.cpp}
+欧拉筛
+\lstinputlisting{数学知识/数论/欧拉筛.cpp}
+
+\textbf{证明质数有无限个}
+
+反证法 假设数是$n$个，每个素数是$p_i$，令$P = \Pi_{i=1}^{n} p_i + 1$
+
+因为任何一个数都可以分解成多个质数相乘
+
+所以$P$除以任何一个质数都余$1$ ，显然$P$就也是一个质数 ，与假设矛盾，所以假设错误
+
+所以质数是无限个
+
+\textbf{性质2}
+
+设$\pi(n)$为不超过n的质数个数，则$\pi(n) \approx \frac{n}{\ln{n}}$
+
+
+\input{数学知识/数论/逆元/main.tex}

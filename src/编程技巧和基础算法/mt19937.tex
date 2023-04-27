@@ -1,0 +1,7 @@
+\section{MT 19937}
+\verb|mt19937|是一个很便捷的随机数生成算法，在 \verb|c++11|中使用非常便捷
+\begin{lstlisting}
+mt19937 rd(seed) ; // 这样就填入了一个随机数种子
+rd(); // 这样就会返回一个随机数
+mt19937_64 rd(); // 相同用法，不过返回是一个 64 位整形
+\end{lstlisting}

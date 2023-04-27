@@ -1,0 +1,10 @@
+\section{最近公共祖先(LCA)}
+\subsection{向上标记法}
+向上标价法最差的复杂度是$O(N)$的，适用于求 LCA 次数少的情况，代码非常好写
+\lstinputlisting{图论/最近公共祖先/向上标记法.cpp}
+\subsection{倍增 LCA}
+值得注意的是向上倍增的过程中\verb|for( int i = t ; i >= 0 ; i --)| 不能写错
+\lstinputlisting{图论/最近公共祖先/倍增LCA.cpp}
+\subsection{Tarjan LCA}
+\subsection{RMQ 求 LCA}
+一次 dfs 求出树的深度和欧拉序。区间\verb|[l,r]|中的深度的最小值就是 lca。区间最值用 st 表来维护即可。

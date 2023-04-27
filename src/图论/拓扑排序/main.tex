@@ -1,0 +1,12 @@
+\section{拓扑排序}
+在一个 DAG 中，将图中的顶点以线性的方式排序，使得对于任何一条 u 到 v 的有向边，u 都可以出现在 v 的前面
+
+\textbf{拓扑序判环} 如果图中已经没有入度为零的点但是依旧有点时，即说明图中存在环。
+
+\textbf{拓扑序判链} 如果求拓扑序的过程中队列中同时存在两个及以上的元素，说明拓扑序不唯一，不是一条链
+
+\textbf{字典序最大、最小的拓扑序} 把 Kahn 中队列换成是大根堆、小根堆实现的优先队列就好
+\subsection{DFS算法}
+\lstinputlisting{图论/拓扑排序/DFS求拓扑序.cpp}
+\subsection{Kahn算法}
+\lstinputlisting{图论/拓扑排序/Kahn求拓扑序.cpp}

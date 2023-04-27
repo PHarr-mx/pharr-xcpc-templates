@@ -1,0 +1,11 @@
+\section{交互题}
+
+这里说的交互题只是 STDIO 交互题
+
+交互题往往是不会限制运行时间的，一般是通过限制与 oj 的交换次数。对于 IO 交换的题目，要注意的是在每一次输出后都必须要\textbf{刷新输出缓冲}后才可以读入。下面介绍几种语言如何刷新缓冲。
+\begin{enumerate}
+    \item C \verb|fflush(stdout)|
+    \item C++ \verb|fflush(stdout)| 或者\verb|cout << flush| 或者用\verb|cout << endl|输出换行也会自动刷新
+    \item Java \verb|System.out.flush()|
+    \item Python \verb|stdout.flush()|
+\end{enumerate}

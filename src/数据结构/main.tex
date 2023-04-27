@@ -1,0 +1,56 @@
+\chapter{数据结构}
+
+\section{并查集}
+
+\lstinputlisting{数据结构/并查集.cpp}
+
+\section{链式前向星}
+链式前向星又名邻接表，其实现在我已经几乎不会再手写链式前向星而是采用\verb|vector|来代替
+\begin{lstlisting}
+vector<int> e[N];// 无边权
+vector< pair<int,int> > e[N]; 有边权
+
+e[u].push_back(v);// 加边(u,v)
+e[u].push_back( { v, w } ); //加有权边 (u,v,w)
+// 无向边 反过来再做一次就好
+
+for( auto v : e[u] ){ // 遍历
+}
+for( auto [ v , w ] : e[u] ) { // 遍历有权边
+}
+
+\end{lstlisting}
+
+\section{Hash}
+\subsection{Hash表}
+对数字的 hash
+\begin{lstlisting}
+for( int i = 1 ; i <= n ; i ++ ) b[i] = a[i]; // 复制数组
+sort( b + 1 , b + 1 + n ) , m = unique( b + 1 , b + 1 + n ) - b;// 排序去重
+for( int i = 1 ; i <= n ; i ++ )//hash
+    a[i] = lower_bound( b + 1 , b + 1 + m , a[i] ) - b;
+\end{lstlisting}
+除此之外，如果更加复杂的 hash 全部使用\verb|unordered_map|容器
+\subsection{字符串 Hash}
+把字符串当做一个 p 进制数，如果哈希冲突就双哈希
+
+如果\verb|s = "abc"|那么$H(s) = a\times p^2 + b\times p + c $
+\lstinputlisting{数据结构/字符串 Hash.cpp}
+
+\input{数据结构/栈/main.tex}
+
+\input{数据结构/ST表/main.tex}
+
+\input{数据结构/树状数组/main.tex}
+
+\section{分块}
+\lstinputlisting{数据结构/分块.cpp}
+
+\input{数据结构/线段树/main.tex
+
+\section{差分}
+\subection{离散化差分}
+\lstinputlisting{数据结构/离散化差分.cpp}
+\subsection{二维前缀和、差分}
+\lstinputlisting{数据结构/二维差分.cpp}
+

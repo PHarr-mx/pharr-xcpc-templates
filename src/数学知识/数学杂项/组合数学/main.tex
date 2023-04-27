@@ -1,0 +1,24 @@
+\section{组合数学}
+\subsection{公式}
+
+\textbf{排列数}
+\[
+    A_{n}^{n} = \frac{n!}{(n-n)!} = \frac{n!}{0!} = n!
+\]
+
+\textbf{组合数}
+\[
+    C_{m}^{n} = \frac{m!}{(m-n)! \times n!}
+\]
+
+\textbf{组合数性质}
+\begin{enumerate}
+    \item $C_n^m=C_n^{n-m}$
+    \item $C_n^m=C_{n-1}^{m}+C_{n-1}^{m-1}$
+    \item $C_n^0+C_n^1+\cdots +C_n^n=2^N$
+    \item $C_n^0+C_n^2+C_n^4+\cdots = C_n^1+C_n^3+C_n^5\cdots=2^{n-1}$
+    \item $C_n^m=\frac{n-m+1}{n}\times C_n^{m-1}$
+\end{enumerate}
+
+\subsection{组合数计算}
+\lstinputlisting{数学知识/数学杂项/组合数学/组合数计算.cpp}

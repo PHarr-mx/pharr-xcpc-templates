@@ -1,0 +1,26 @@
+\documentclass[UTF-8,12pt,twoside]{ctexbook}
+
+\usepackage[inner=1in,outer=0.5in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage{listings}
+\usepackage{graphicx}
+%\usepackage{hyperref} % 设置目录跳转
+
+\lstset{
+    basicstyle=\tt,
+    breaklines,
+    numbers=left,
+}
+
+\title{PHarr XCPC Templates}
+\author{PHarr}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \include{编程技巧和基础算法/main}
+    \include{数据结构/main}
+    \include{图论/main}
+    \include{数学知识/main}
+    \include{字符串/main}
+    \include{动态规划/main}
+\end{document}

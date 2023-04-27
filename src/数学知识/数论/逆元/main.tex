@@ -1,0 +1,19 @@
+\subsection{逆元}
+\textbf{费马小定理}
+
+$a^{p-1} \equiv 1 (mod\ p)$,其中$p$为素数,所以$aa^{p-2}\equiv 1 (mod\ p)$
+\begin{lstlisting}[language = c]
+int inv( int x ) {return pow( x , p - 2 );}
+\end{lstlisting}
+
+\textbf{$O(n)$递推}
+
+\begin{lstlisting}[language = c]
+const int N = 1005;
+int inv[N] = {};
+void invers(int n,int mod){
+    inv[1] = 1;
+    for(int i = 2;i <= n;i ++) inv[i] = (p-p/i) * inv[p%i] % p;
+    return ;
+}
+\end{lstlisting}

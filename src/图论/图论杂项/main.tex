@@ -1,0 +1,13 @@
+\section{图论杂项}
+
+\subsection{判断简单无向图图}
+根据图中的每个点的度可以判断，这个图是不是一个简单无向图（没有重边和自环的无向图）
+
+\textbf{Havel-Hakimi定理}
+
+\begin{enumerate}
+    \item 对当前数列排序，使其呈递减
+    \item 从S[2]开始对其后S[1]个数字-1
+    \item 一直循环直到当前序列出现负数（即不可简单图化的情况）或者当前序列全为0 （可简单图化）时退出。
+\end{enumerate}
+\lstinputlisting{图论/图论杂项/Havel-Hakimi定理.cpp}

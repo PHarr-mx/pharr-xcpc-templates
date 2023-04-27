@@ -1,0 +1,21 @@
+\section{有用的库函数}
+
+
+\begin{enumerate}
+    \item \verb|fabs(x)| 用于计算浮点数的绝对值
+    \item \verb|exp(x)| 计算$e^x$
+    \item \verb|log(x)| 计算$\ln(x)$
+    \item \verb|__lg(x)| 计算$\left \lfloor \log_2(x) \right \rfloor $
+    \item \verb|__gcd(x,y)| 计算$gcd(x,y)$,不过在C++17引入了\verb|gcd(x,y),lcm(x,y)|
+    \item \verb|ceil(x)| 返回$\left \lceil x \right \rceil$
+    \item \verb|floor(x)| $\left \lfloor x \right \rfloor$
+    \item \verb|next_permutation(begin,end)| 将$[begin,end)$变为下一个排列，如果已经是最后一个排列就返回 0
+    \item \verb|prev_permutation(begin,end)| 将$[begin,end)$变为上一个排列，如果已经是最后一个排列就返回 0
+    \item \verb|shuffle(begin,end,gen)| 打乱$[begin,end)$，\verb|gen|是一个随机数生成器（参考mt19937）
+    \item \verb|is_sorted(begin,end)| 判断是否升序排序
+    \item \verb|max(l),min(l)| 对于数组或列表返回最大最小值，例\verb|max({x,y,z})|
+    \item \verb|exp2(x)| 计算$2^x$
+    \item \verb|log2(x)| 计算$\log_2(x)$
+    \item \verb|hypot(x,y)| 计算$\sqrt{x^2+y^2}$
+\end{enumerate}
+

@@ -1,0 +1,10 @@
+/out/动态规划
+/out/图论
+/out/字符串
+/out/数学知识
+/out/数据结构
+/out/编程技巧和基础算法
+*.log
+*.aux
+*.toc
+main.synctex.gz
