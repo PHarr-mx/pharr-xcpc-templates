@@ -1,19 +1,23 @@
-// lowbit 函数
+struct BinaryIndexedTree{
 #define lowbit(x) ( x & -x )
-// O(N) 递推建树
-void build(){
-    for( int i = 1 , fa = i + lowbit(i) ; i <= n ; i ++ , fa = i + lowbit(i) )
-        if( fa <= n ) bit[fa] += bit[i];
-}
-// 单点修改
-void add( int x , int val ){
-    for( int i = x ; i <= n ; i += lowbit(i) )
-        bit[i] += val;
-}
-// 区间查询[1,x]的和
-int getVal( int x ){
-    int res = 0;
-    for( int i = x ; i ; i -= lowbit(i) )
-        res += bit[i];
-    return res;
-}
+    int n;
+    vector<int> b;
+
+    BinaryIndexedTree( int n ) : n(n) , b(n+1 , 0){};
+    BinaryIndexedTree( vector<int> &c ){ // 注意数组下标必须从 1 开始
+        n = c.size() , b = c;
+        for( int i = 1 , fa = i + lowbit(i) ; i <= n ; i ++ , fa = i + lowbit(i) )
+            if( fa <= n ) b[fa] += b[i];
+    }
+    void add( int i , int y ){
+        for( ; i <= n ; i += lowbit(i) ) b[i] += y;
+        return;
+    }
+
+    int calc( int i ){
+        int sum = 0;
+        for( ; i ; i -= lowbit(i) ) sum += b[i];
+        return sum;
+    }
+};
+};
