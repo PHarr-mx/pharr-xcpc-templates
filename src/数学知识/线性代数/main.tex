@@ -1,0 +1,25 @@
+\section{线性代数}
+
+\subsection{矩阵加速递推}
+\lstinputlisting{数学知识/线性代数/matrix.cpp}
+\textbf{例题 Luogo P1939}
+
+已知数列$a$，满足
+\[
+a_i=\left\{\begin{matrix}
+               1 & i\in \{1,2,3\}\\
+               a_{i-1}+a_{x-3}& x\ge 4
+\end{matrix}\right.
+\]
+
+求数列第$n$项对$10^9+7$取模
+
+设计状态阵$mat_i=\begin{bmatrix}
+                     a_i \\
+                     a_{i-1}\\
+                     a_{i-2}
+\end{bmatrix}$，则$mat_{i+1}=\begin{bmatrix}a_{i+1}\\a_{i}\\a_{i-1}\end{bmatrix}=\begin{bmatrix}a_{i}+a_{i-2}\\a_{i}\\a_{i-1}\end{bmatrix}$
+
+可以用待定系数法，加对应项相等解出转移矩阵$\begin{bmatrix}1&0&1\\1&0&0\\0&1&0\end{bmatrix}$
+
+则$mat_{3+n}=\begin{bmatrix}1&0&1\\1&0&0\\0&1&0\end{bmatrix}^n\times mat_3$
