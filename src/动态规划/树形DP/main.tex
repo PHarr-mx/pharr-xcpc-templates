@@ -1,0 +1,33 @@
+\section{树形 DP}
+
+\subsection{普通树形DP}
+
+
+\begin{framed}
+    给一颗$n$个节点有根的树，树上标号$i$的点权值为$h_i$。在树上选一些点，要求父节点和子节点不能同时选。问权值和最大是多少？
+\end{framed}
+
+$f[i][0]$表示在$i$子树中选择，不选$i$的最大权值和，$f[i][1]$表示选$i$的最大权值和。
+
+对于一对父子$(x,y)$，如果选父节点$x$，则$y$不能选，\verb|f[x][1] += f[y][0]|。如果不选$x$，则$y$随意，\verb|f[x][0] += max(f[y][1] , f[y][0])|。注意选$x$还要加上本身，\verb|f[x][1] += h[x]|。
+
+\lstinputlisting{动态规划/树形DP/NC1044A.cpp}
+
+\subsection{背包类树形DP}
+
+\begin{framed}
+    给一颗大小为$n$树，树上每个点都有一个点权。选择节点的先决条件是是选择其父节点。最多可以选择$m$个节点，问可选的最大权值是多少。
+\end{framed}
+
+设$f[i][j]$表示$i$节点子树中选择的不超过$j$个节点的最大权值。从儿子转移过来的过程其实就是一个类似\textbf{分组背包}的过程。
+
+\lstinputlisting{动态规划/树形DP/NC1044B.cpp}
+
+\subsection{换根DP}
+
+\begin{framed}
+    给定一个$n$ 个点的树，请求出一个结点，使得以这个结点为根时，所有结点的深度之和最大。
+\end{framed}
+
+\lstinputlisting{动态规划/树形DP/luoguP3478.cpp}
+
