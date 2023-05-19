@@ -1,0 +1,46 @@
+\section{KMP}
+
+首先对字符串首先要求一个前缀函数$\pi[i]$。$\pi[i]$简单来说就是子串$s[0\dots i]$最长的相等的真前缀与真后缀的长度。
+
+\begin{lstlisting}[language = c]
+vector<int> prefix_function(const string &s) {
+    int n = s.size();
+    vector<int> pi(n);
+    for (int i = 1, j; i < n; i++) {
+        j = pi[i - 1];
+        while (j > 0 && s[i] != s[j]) j = pi[j - 1];
+        if (s[i] == s[j]) j++;
+        pi[i] = j;
+    }
+    return pi;
+}
+\end{lstlisting}
+
+然后就是 KMP 算法的实现有两种，两种做法效率实际上一样的
+
+\begin{lstlisting}[language = c]
+// pattern 在 text 中出现的位置
+vector<int> kmp(const string &text, const string &pattern) {
+    string cur = pattern + '#' + text;
+    int n = text.size(), m = pattern.size();
+    vector<int> v, lps = prefix_function(cur);
+    for (int i = m + 1; i <= n + m; i++)
+        if (lps[i] == m) v.push_back(i - 2 * m);
+    return v;
+}
+\end{lstlisting}
+
+除了这样做之外，还有一种做法是求不重复的匹配位置
+
+\begin{lstlisting}[language = c]
+vector<int> kmp(const string &text, const string &pattern) {
+    vector<int> v, lps = prefix_function(pattern);
+    for (int i = 0, j = 0; i < text.size(); i++) {
+        while (j && text[i] != pattern[j]) j = lps[j - 1];
+        if (text[i] == pattern[j]) j++;
+        if (j == pattern.size())
+            v.push_back(i - j + 1), j = 0;
+    }
+    return v;
+}
+\end{lstlisting}
