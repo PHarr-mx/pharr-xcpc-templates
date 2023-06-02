@@ -31,11 +31,6 @@ for( int i = 1 ; i <= n ; i ++ )//hash
     a[i] = lower_bound( b + 1 , b + 1 + m , a[i] ) - b;
 \end{lstlisting}
 除此之外，如果更加复杂的 hash 全部使用\verb|unordered_map|容器
-\subsection{字符串 Hash}
-把字符串当做一个 p 进制数，如果哈希冲突就双哈希
-
-如果\verb|s = "abc"|那么$H(s) = a\times p^2 + b\times p + c $
-\lstinputlisting{数据结构/字符串 Hash.cpp}
 
 \input{数据结构/栈/main.tex}
 
