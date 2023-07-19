@@ -31,5 +31,4 @@ struct Trie {
         }
         return t[pos].exist;
     }
-
 };
