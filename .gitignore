@@ -9,3 +9,5 @@
 *.toc
 main.synctex.gz
 .DS_Store
+src/.DS_Store
+src/数据结构/.DS_Store
