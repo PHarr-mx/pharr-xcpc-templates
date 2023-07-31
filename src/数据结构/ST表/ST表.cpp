@@ -11,7 +11,7 @@ int32_t main() {
         f[i][0] = a[i] , log_2[i] = log_2[i>>1] + 1;
 
     for( int j = 1 ; j <= logN ; j ++ )
-        for( int i = 1; i + ( 1  << j ) - 1 <= n ; i ++ )
+        for( int i = 1; i + (1 << j) - 1 <= n ; i ++ )
             f[i][j] = max( f[i][j-1] , f[ i + ( 1 << j - 1 ) ][j-1] );
 
     for( int l , r , s ; m ; m -- ){
