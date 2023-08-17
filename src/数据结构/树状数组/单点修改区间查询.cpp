@@ -19,4 +19,8 @@ struct BinaryIndexedTree{
         for( ; i ; i -= lowbit(i) ) sum += b[i];
         return sum;
     }
+<<<<<<< Updated upstream
 };
+=======
+};
+>>>>>>> Stashed changes
