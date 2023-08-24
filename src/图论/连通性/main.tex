@@ -1,0 +1,27 @@
+\section{连通性}
+\subsection{强连通分量}
+\textbf{连通} 在有向图中存在$u$到$v$的路径，则称$u$可达$v$。如果$u,v$互相可达，则$u,v$连通。
+
+\textbf{强连通} 有向图$G$强连通指$G$中任意两个结点连通。
+
+\textbf{强联通分量} 有向图的极大强连通子图。
+
+\textbf{DFS 生成树}
+
+在有向图上进行 DFS 会形成森林。DFS会形成4 种边。
+\begin{enumerate}
+    \item Tree Edge，树边
+    \item Back Edge，返祖边，指向祖先结点的边
+    \item Cross Edge，衡叉边，指向搜索过程中已经访问过的结点，但是这个结点并不是祖先节点
+    \item Forward Edge，前向边，指向子孙节点的边
+\end{enumerate}
+
+如果结点$u$是某个强连通分量在搜索树中遇到的第一个结点，那么这个强连通分量的其余结点肯定是在搜索树中以$u$为根的子树中。结点$u$被称为这个强连通分量的根。
+
+\textbf{Tarjan}
+
+\lstinputlisting{图论/连通性/Tarjan.cpp}
+
+\textbf{缩点}
+
+\lstinputlisting{图论/连通性/缩点.cpp}

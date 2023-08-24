@@ -11,3 +11,23 @@
     \item 一直循环直到当前序列出现负数（即不可简单图化的情况）或者当前序列全为0 （可简单图化）时退出。
 \end{enumerate}
 \lstinputlisting{图论/图论杂项/Havel-Hakimi定理.cpp}
+
+\subsection{2-SAT}
+SAT是是适定性（Satisfiability）问题的简称。一般形式为 k-适定性问题，简称 k-SAT。而当$k>2$时该问题为 NP 完全的。
+
+\textbf{定义}
+
+有 $n$ 个布尔变量 $x_1$$\sim$$x_n$，另有 $m$ 个需要满足的条件，每个条件的形式都是 「$x_i$ 为 \verb|true| / \verb|false| 或 $x_j$ 为 \verb|true} / \verb|false|」。比如 「$x_1$ 为真或 $x_3$ 为假」、「$x_7$ 为假或 $x_2$ 为假」。
+\[
+(x_i\or x_j) \and(\neg x_i\or x_j)\cdots
+\]
+注意这里的或为\textbf{排斥或}
+
+2-SAT 问题的目标是给每个变量赋值使得所有条件得到满足。
+
+\textbf{Tarjan SCC 缩点}
+
+把每个变量拆成两个点，$X(True)$和$X(False)$。比如现在有一个要求$X|Y=True$，则把$X(False)$到$Y(True)$连一条边，把$X(True)$到$Y(False)$连一条边。连出来的图是对称的，然后跑一遍 Tarjan，如果存在某个变量的两个点在同一个强连通分量中的情况，则无解，否则有解。
+
+构造方案时，我们可以通过缩点后的拓扑序确定变量的值。如果变量$x$的拓扑序在$\neg x$之后，则取$x$为真，反之取$x$为假。注意 Tarjan 求得的 SCC 的编号相同与反拓扑序。
+\lstinputlisting{图论/图论杂项/2SAT.cpp}
