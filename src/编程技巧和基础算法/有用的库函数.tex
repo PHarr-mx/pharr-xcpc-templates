@@ -20,3 +20,12 @@
     \item \verb|rotate(iterator begin, iterator middle, iterator end)|作用是把序列中\verb|begin|和\verb|end|连起来，然后再从\verb|middle|处断开，\verb|middle|作为新的\verb|begin|
 \end{enumerate}
 
+\verb|__builtin| 家族，这些内容都是GNU私货。如果\verb|x|类型是\verb|long long| 请使用\verb|__builtin_xxxll(x)|
+
+\begin{enumerate}
+    \item \verb|__builtin_popcount(x)| 返回 x 在二进制下1的个数。
+    \item \verb|__builtin_parity(x)| 返回 x 在二进制下1的个数的奇偶性
+    \item \verb|__builtin_ffs(x)| 返回 x 在二进制下最后一个1是从后往前第几位
+    \item \verb|__builtin_ctz(x)| 返回 x 在二进制下后导零的个数
+    \item \verb|__builtin_clz(x)| 返回 x 在二进制下前导零的个数
+\end{enumerate}
