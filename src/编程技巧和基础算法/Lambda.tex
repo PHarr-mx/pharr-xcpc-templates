@@ -16,3 +16,12 @@ Lambda的组成部分是
 \verb|-> return-type|，函数范围值类型，如果不写可以自动推断，但是如果有多个\verb|return|且返回类型不同就会\verb|CE|
 
 \verb|c++14|之后可以用\verb|auto|来自动的把函数赋值给变量，\verb|c++11|中则需要自己写
+
+\verb|c++17| 之后递归可以这样写
+\begin{lstlisting}
+auto dfs = [e](auto &&self, int x) -> void {
+    for (auto y: e[x])
+        self(self, y);
+};
+dfs(dfs, 1);
+\end{lstlisting}
