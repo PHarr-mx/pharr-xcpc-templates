@@ -5,6 +5,7 @@
 \subsection{倍增 LCA}
 值得注意的是向上倍增的过程中\verb|for( int i = t ; i >= 0 ; i --)| 不能写错
 \lstinputlisting{图论/最近公共祖先/倍增LCA.cpp}
-\subsection{Tarjan LCA}
+%\subsection{Tarjan LCA}
 \subsection{RMQ 求 LCA}
-一次 dfs 求出树的深度和欧拉序。区间\verb|[l,r]|中的深度的最小值就是 lca。区间最值用 st 表来维护即可。
+dfs 求出深度和dfn。位置在$[dfn_{u+1},dfn_{v}]$之间深度最小的节点的父亲就是LCA。区间最值用 ST表维护。
+\lstinputlisting{图论/最近公共祖先/dfnLCA.cpp}
