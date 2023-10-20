@@ -37,7 +37,7 @@ struct Circle { // 圆(存圆心和半径)
 // 常用常量
 const Point O(0, 0); // 原点
 const Line Ox(O, Vec(1, 0)), Oy(O, Vec(0, 1));// 坐标轴
-const double pi = M_PI, eps = 1e-9;
+const double pi = M_PI, eps = 1e-9;// pi 精度最高的是acosl(-1)
 
 // 浮点比较
 bool eq(db a, db b) { return abs(a - b) < eps; }// ==
@@ -159,7 +159,7 @@ bool operator==(Seg a, Seg b) { // 两条线段是否重合 depends eq, P==P
 
 // 以横坐标为第一关键字、纵坐标为第二关键字比较两个点 depends eq, lt
 bool operator<(Point A, Point B) {
-    return lt(A.x, B.x) or (eq(A.x, B.x) and lt(A.x, B.x));
+    return lt(A.x, B.x) or (eq(A.x, B.x) and lt(A.y, B.y));
 }
 
 // 直线与圆是否相切 depends eq, V^V, len
