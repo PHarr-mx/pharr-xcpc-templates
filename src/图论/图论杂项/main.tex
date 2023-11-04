@@ -17,9 +17,9 @@ SAT是是适定性（Satisfiability）问题的简称。一般形式为 k-适定
 
 \textbf{定义}
 
-有 $n$ 个布尔变量 $x_1$$\sim$$x_n$，另有 $m$ 个需要满足的条件，每个条件的形式都是 「$x_i$ 为 \verb|true| / \verb|false| 或 $x_j$ 为 \verb|true} / \verb|false|」。比如 「$x_1$ 为真或 $x_3$ 为假」、「$x_7$ 为假或 $x_2$ 为假」。
+有 $n$ 个布尔变量 $x_1$$\sim$$x_n$，另有 $m$ 个需要满足的条件，每个条件的形式都是 「$x_i$ 为 \verb|true/false| 或 $x_j$ 为 \verb|true/false|」。比如 「$x_1$ 为真或 $x_3$ 为假」、「$x_7$ 为假或 $x_2$ 为假」。
 \[
-(x_i\or x_j) \and(\neg x_i\or x_j)\cdots
+    (x_i\or x_j) \and(\neg x_i\or x_j)\cdots
 \]
 注意这里的或为\textbf{排斥或}
 
