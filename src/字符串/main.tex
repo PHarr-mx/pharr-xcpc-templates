@@ -4,11 +4,14 @@
 
 \input{字符串/KMP.tex}
 
+
 \section{Tire}
 
 \lstinputlisting{字符串/Tire.cpp}
 
+
 \section{最小表示法}
+
 \subsection{循环同构}
 如果字符串$S$选择一个位置$i$满足
 $$
@@ -24,3 +27,7 @@ $$
 若$S[i+k]>S[j+k]$，则其实下表$l\in[i,i+k]$的字符串均不可能为最优解，因为如果有$l=i+p$则一定有$j+p$字典序更小，所以可以直接把$i$移动到$i+k+1$进行比较。
 
 \lstinputlisting{字符串/minNotation.cpp}
+
+\subsection{Manacher}
+
+其中 $p_i$ 表示 以位置$i$为中心有$\left \lfloor \frac{p_i}{2} \right \rfloor $个回文串，且最长的长度为$p_i-1$
