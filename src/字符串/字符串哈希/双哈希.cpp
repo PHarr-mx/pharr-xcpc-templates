@@ -1,43 +1,50 @@
-#define int long long
-#define mp make_pair
-typedef pair<int, int> hashv;
+namespace Hash {// 下标从 1 开始
+    using Val = pair<i64, i64>;
+    const Val Mod(1e9 + 7, 1e9 + 9);
+    const Val base(13331, 23333);
+    vector <Val> p;
 
-const hashv mod = mp( 1e9+7 , 998244353 );
-const hashv base = mp(13331,23333);
+    Val operator+(Val a, Val b) {
+        i64 c1 = a.first + b.first, c2 = a.second + b.second;
+        if (c1 >= Mod.first) c1 -= Mod.first;
+        if (c2 >= Mod.second) c2 -= Mod.second;
+        return pair(c1, c2);
+    }
 
-hashv operator + ( hashv a , hashv b ) {
-    int c1 = a.first + b.first , c2 = a.second + b.second;
-    if( c1 >= mod.first ) c1 -= mod.first;
-    if( c2 >= mod.second ) c2 -= mod.second;
-    return mp( c1 , c2 );
-}
+    Val operator-(Val a, Val b) {
+        i64 c1 = a.first - b.first, c2 = a.second - b.second;
+        if (c1 < 0) c1 += Mod.first;
+        if (c2 < 0) c2 += Mod.second;
+        return pair(c1, c2);
+    }
 
-hashv operator - ( hashv a , hashv b ) {
-    int c1 = a.first-b.first , c2 =a.second-b.second;
-    if( c1 < 0 ) c1 += mod.first;
-    if( c2 < 0 ) c2 += mod.second;
-    return mp( c1 , c2 );
-}
+    Val operator*(Val a, Val b) {
+        return pair(a.first * b.first % Mod.first, a.second * b.second % Mod.second);
+    }
 
-hashv operator * ( hashv a , hashv b ) {
-    return mp( a.first*b.first%mod.first , a.second*b.second%mod.second );
-}
+    void init(int n) {
+        p.resize(n + 1), p[0] = pair(1, 1);
+        for (int i = 1; i <= n; i++) p[i] = p[i - 1] * base;
+        return;
+    }
 
-const int N = 2e6+5;
+    struct Hash {
+        vector <Val> h;
 
-vector< hashv > p , hs , ht;
+        Hash(const string &s) {
+            h.resize(s.size() + 1);
+            for (int i = 1; i <= s.size(); i++)
+                h[i] = h[i - 1] * base + pair(s[i - 1], s[i - 1]);
+            return;
+        }
 
-void hashStr( const string &s , vector<hashv> &v ){
-    v.resize(s.size()+1);
-    for( int i = 1 ; i <= s.size() ; i ++ )
-        v[i] = v[i-1] * base + mp( s[i-1] , s[i-1] );
-    return;
-}
-hashv getHash( int l , int r , const vector<hashv> &v){
-    if( l > r ) return mp( 0 , 0 );
-    return v[r] - v[l-1] * p[r-l+1];
-}
-void init( int n ){
-    p = vector<hashv>( n+1 ) , p[0] = mp(1,1);
-    for( int i = 1 ; i <= n ; i ++ ) p[i] = p[i-1] * base;
+        Val getHash(int l, int r) {
+            if (l > r) return pair(0, 0);
+            return h[r] - h[l - 1] * p[r - l + 1];
+        }
+
+        Val val() {
+            return h.back();
+        }
+    };
 }
