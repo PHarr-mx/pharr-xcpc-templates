@@ -31,7 +31,7 @@ public:
         if( fa[x] > fa[y] ) swap( x , y );
         fa[x] += fa[y] , fa[y] = x;
     }
-    bool check( int x , int y ){
+    bool same( int x , int y ){
         x = getfa(x) , y = getfa(y);
         return ( x == y );
     }

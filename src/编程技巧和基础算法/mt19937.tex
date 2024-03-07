@@ -5,3 +5,9 @@ mt19937 rd(seed) ; // 这样就填入了一个随机数种子
 rd(); // 这样就会返回一个随机数
 mt19937_64 rd(); // 相同用法，不过返回是一个 64 位整形
 \end{lstlisting}
+如果要在一个闭区间$[a,b]$中随机生成一个数
+\begin{lstlisting}
+mt19937 mt{random_device()()};
+uniform_int_distribution rd(a,b);
+x = rd(mt); // 这样会返回一个在$[a,b]$范围内的随机数
+\end{lstlisting}
