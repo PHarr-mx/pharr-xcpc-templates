@@ -1,0 +1,81 @@
+\section{Educational DP Contest}
+
+\subsection{A - Frog 1}
+\begin{framed}
+    有$N$块石头，编号为$1, 2, \ldots, N$。每块$i$（$1 \leq i \leq N$），石头$i$的高度为$h_i$。
+
+    有一只青蛙，它最初在石块 $1$ 上。它会重复下面的动作若干次以到达石块$N$：
+    \begin{itemize}
+        \item 如果青蛙目前在石块$i$上，则跳到石块$i + 1$或石块$i + 2$上。这里需要付出$|h_i - h_j|$的代价，其中$j$是要降落的石块。
+    \end{itemize}
+
+    求青蛙到达石块$N$之前可能产生的最小总成本。
+\end{framed}
+简单的线性dp，$f[i]$为到达$i$的最小的代价，所以转移方程就是:
+
+$f[i]=\min( f[i-1] - |h_i-h_{i-1}|,f[i-2]-|h_i-h_{i-2}|)$
+\lstinputlisting{动态规划/Educational DP Contest/A.cpp}
+
+
+\subsection{B - Frog 2}
+\begin{framed}
+    有$N$块石头，编号为$1, 2, \ldots, N$。每块$i$（$1 \leq i \leq N$），石头$i$的高度为$h_i$。
+
+    有一只青蛙，它最初在石块 $1$ 上。它会重复下面的动作若干次以到达石块$N$：
+    \begin{itemize}
+        \item 如果青蛙目前在石块$i$上，请跳到以下其中一个位置：石块$i + 1, i + 2, \ldots, i + K$。这里会产生$|h_i - h_j|$的代价，其中$j$是要降落的石头。
+    \end{itemize}
+    求青蛙到达石块$N$之前可能产生的最小总成本。
+\end{framed}
+与上一题不同的是，这次转移的前驱很多，但依旧可以直接转移，复杂度$O(NK)$
+\lstinputlisting{动态规划/Educational DP Contest/B.cpp}
+
+
+\subsection{C - Vacation}
+\begin{framed}
+    有 $N$ 天。每$i$ ($1 \leq i \leq N$)天，第$i$天有三种活动$A,B,C$，只能进行一种活动，每种活动会获得$a_i,b_i,c_i$的快乐值，相邻两天的活动不能相同，请求快乐值之和的最大值。
+\end{framed}
+$f[i][j]$表示前$i$天，且第$i$天进行活动$j$的最大快乐值。只需要$3\times 3$ 的枚举状态和前驱进行转移即可。
+\lstinputlisting{动态规划/Educational DP Contest/C.cpp}
+
+
+\subsection{D - Knapsack 1}
+\begin{framed}
+    有 $N$ 个项目，编号为 $1, 2, \ldots, N$。对于每个$i$（$1 \leq i \leq N$），项目$i$的权重为$w_i$，值为$v_i$。
+
+    太郎决定从$N$件物品中选择一些装进背包里带回家。背包的容量为 $W$，这意味着所取物品的权重之和最多为 $W$。
+
+    求太郎带回家的物品价值的最大可能和。
+\end{framed}
+01背包
+\lstinputlisting{动态规划/Educational DP Contest/D.cpp}
+
+
+\subsection{E - Knapsack 2}
+\begin{framed}
+    有 $N$ 个项目，编号为 $1, 2, \ldots, N$。对于每个$i$（$1 \leq i \leq N$），项目$i$的权重为$w_i$，值为$v_i$。
+
+    太郎决定从$N$件物品中选择一些装进背包里带回家。背包的容量为 $W$，这意味着所取物品的权重之和最多为 $W$。
+
+    求太郎带回家的物品价值的最大可能和。
+\end{framed}
+还是 01 背包，但是本题中$W$范围非常大，无法枚举。这也用到了一个常用的优化思路，考虑$N\times v_i\le 10^5$，所以可以背包求出价值为$i$的最小代价，然后找到合法的最大值即可。
+\lstinputlisting{动态规划/Educational DP Contest/E.cpp}
+
+
+\subsection{F - LCS}
+\begin{framed}
+    给你字符串 $s$ 和 $t$。请找出一个最长的字符串，它同时是 $s$ 和 $t$ 的子串。
+\end{framed}
+典题求 LCS 并还原。
+\lstinputlisting{动态规划/Educational DP Contest/F.cpp}
+
+\subsection{G - Longest Path}
+\begin{framed}
+    有一个有向图$G$，它有$N$个顶点和$M$条边。顶点编号为 $1, 2, \ldots, N$，对于每个 $i$ ($1 \leq i \leq M$)，$i$条有向边从顶点 $x_i$ 到 $y_i$。$G$不包含有向循环。
+
+    求$G$中最长有向路径的长度。这里，有向路径的长度就是其中边的数量。
+\end{framed}
+因为不存在有向环，所以最长的路径起点一定入度为 0终点一定出度为 0。想到这个结论后，比较容易想的就是在拓扑序上线性递推即可。
+\lstinputlisting{动态规划/Educational DP Contest/G.cpp}
+

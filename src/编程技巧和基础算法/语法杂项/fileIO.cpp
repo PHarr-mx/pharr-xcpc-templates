@@ -9,7 +9,7 @@ ifstream fin("a.in");
 fin.open("a.in");
 
 // 关闭
-fin.open();
+fin.close();
 
 // 检测 EOF 到达结尾返回非 0 值
 fin.eof();
