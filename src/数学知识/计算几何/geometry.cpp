@@ -306,3 +306,22 @@ Point orthoCenter(Point A, Point B, Point C) {
     double d = (B - C) ^ (A - C);
     return 1 / d * r90c(n * (C - B) - m * (C - A));
 }
+
+// 两圆相交的面积 depends V-V, dis
+ldb areaInter(Circle c1, Circle c2) {
+    ldb d = dis(c1.o, c2.o);
+    auto &r1 = c1.r, r2 = c2.r;
+    if (d >= r1 + r2) return 0.0;
+    if (r1 + d <= r2) return Pi * r1 * r1;
+    if (r2 + d <= r1) return Pi * r2 * r2;
+    ldb ans = 0;
+
+    ldb ang1 = acosl((r1 * r1 + d * d - r2 * r2) / (2 * r1 * d));
+    ans += ang1 * r1 * r1;
+    ans -= r1 * sinl(ang1) * r1 * cosl(ang1);
+
+    ldb ang2 = acosl((r2 * r2 + d * d - r1 * r1) / (2 * r2 * d));
+    ans += ang2 * r2 * r2;
+    ans -= r2 * sinl(ang2) * r2 * cosl(ang2);
+    return ans;
+}

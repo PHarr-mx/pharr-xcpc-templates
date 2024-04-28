@@ -27,3 +27,11 @@ char * name , * sign;//会被替换成这种结果
 
 \subsection{乘法爆 long long }
 \lstinputlisting{编程技巧和基础算法/语法杂项/longlongmul.cpp}
+
+\subsection{枚举子集}
+\begin{lstlisting}
+// 降序遍历 m 的非空子集, s 是 m 的一个非空子集
+for (int s = m; s; s = (s - 1) & m) {
+
+}
+\end{lstlisting}

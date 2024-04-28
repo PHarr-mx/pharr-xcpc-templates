@@ -19,3 +19,22 @@
 #endif
 \end{lstlisting}
 但是\verb|<math.h>|并没有默认定义\verb|_USE_MATH_DEFINES|，所以用之前需要先定义（在万能头下貌似已经被定义过了），在开头加上\verb|#define _USE_MATH_DEFINES|即可
+
+
+在 C++ 20 中新增了\verb|<numbers>|库，里面定义了如下常量
+
+\begin{lstlisting}
+numbers::e              // e
+numbers::log2e          // log2(e)
+numbers::log10e         // log10(e)
+numbers::pi             // pi
+numbers::inv_pi         // 1 / pi
+numbers::inv_sqrtpi     // 1 / sqrt(pi)
+numbers::ln2            // ln2
+numbers::ln10           // ln 10
+numbers::sqrt2          // sqrt(2)
+numbers::sqrt3          // sqrt(3)
+numbers::inv_sqrt3      // 1 / sqrt(3)
+numbers::egamma         // 欧拉常数
+numbers::phi            // 环境分隔比常数 (1 + sqrt(5)) / 2
+\end{lstlisting}
