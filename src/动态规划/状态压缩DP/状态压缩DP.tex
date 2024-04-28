@@ -6,3 +6,17 @@
 
 复杂度 $O(n^2 2^n)$
 \lstinputlisting{动态规划/状态压缩DP/tsp.cpp}
+
+\subsection{SOS DP}
+
+SOS DP 又称高维前缀和，一般用来解决以下问题
+\begin{framed}
+对于所有的$i$, 满足$0\le i < 2^n$，求解$\sum_{j \in i} a_j$
+\end{framed}
+这里可以把$i$当做一个用二进制集合，每个物品只有选或不选两种情况。
+
+先给一种非容斥的方法求解前缀和
+\lstinputlisting{动态规划/状态压缩DP/前缀和.cpp}
+
+其实SOS DP也是类似做法，一维一维的做
+\lstinputlisting{动态规划/状态压缩DP/SOSDP.cpp}
