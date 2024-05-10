@@ -1,0 +1,1 @@
+g++ %1.cpp -o %1 -g -std=c++20 -O2 -Wall -Wl,--stack=268435456 -Wall -DLOCAL && echo compile_successfully && %1.exe
