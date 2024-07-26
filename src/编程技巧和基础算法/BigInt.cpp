@@ -5,7 +5,7 @@ struct Bigint {
     // constructors
     Bigint() {} // default constructor
     Bigint(string b) {
-        if (b[0] == '0') sign = -1, a = b.substr(1);
+        if (b[0] == '-') sign = -1, a = b.substr(1);
         else sign = 1, a = b;
         reverse(a.begin(), a.end());
         while (a.back() == '0') a.pop_back();
