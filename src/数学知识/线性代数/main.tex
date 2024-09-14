@@ -23,3 +23,21 @@ a_i=\left\{\begin{matrix}
 可以用待定系数法，加对应项相等解出转移矩阵$\begin{bmatrix}1&0&1\\1&0&0\\0&1&0\end{bmatrix}$
 
 则$mat_{3+n}=\begin{bmatrix}1&0&1\\1&0&0\\0&1&0\end{bmatrix}^n\times mat_3$
+
+\subsection{线性基}
+
+\textbf{定义}：给定数集$s$，以异或运算张成的数集与$S$相同的极大线性无关集，称为原数集的一个线性基。
+
+\textbf{性质}：
+
+\begin{enumerate}
+    \item 原数集的任意一个数都能有线性基内部的一些数异或得到。
+    \item 线性基内部任意数异或不为 0。
+    \item 线性基内数唯一，且保证性质一的情况下，数的个数最少。
+    \item 线性基内每个数的最高有效位各不相同。
+\end{enumerate}
+
+
+如何判断原数集能否异或出$0$？在插入的过程中如果插入失败就可以异或出$0$。
+
+\lstinputlisting{数学知识/线性代数/Basis.cpp}
