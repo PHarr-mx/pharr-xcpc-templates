@@ -54,7 +54,6 @@ int query( int l , int r , Node * cur ){
     if( l <= mid ) res += query( l , r , cur->left );
     if( r > mid ) res += query( l , r , cur->right );
     return res;
-
 }
 
 int32_t main(){
