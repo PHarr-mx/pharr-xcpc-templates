@@ -179,7 +179,7 @@ struct Bigint {
 
     Bigint operator^(Bigint y) {
         Bigint ans("1"), x = (*this);
-        while (y >= 1) {
+        while (y > 0) {
             if (y % 2 == 1) ans = ans * x;
             x = x * x, y = y / 2;
         }
@@ -188,7 +188,7 @@ struct Bigint {
 
     Bigint operator^(int y) {
         Bigint ans("1"), x = (*this);
-        while (y >= 1) {
+        while (y > 0) {
             if (y % 2 == 1) ans = ans * x;
             x = x * x, y = y / 2;
         }
