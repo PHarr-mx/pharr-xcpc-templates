@@ -1,0 +1,30 @@
+\section{Linux 下运行脚本}
+
+将以下脚本保存为\verb|run.sh|，如果要编译则 \verb|./run.sh A.cpp|。
+
+如果遇到了权限不足的情况可以 \verb|chmod +x ./run.sh| 或者使用 \verb|sudo|
+
+还有一种使用方法是\verb|bash ./run.sh A|
+
+\begin{lstlisting}
+#!/bin/bash
+g++ $1.cpp -o $1 -g -O2 -std=c++20 \
+-Wall -fsanitize=undefined -fsanitize=address \
+&& echo compile_successfully >&2 && ./$1
+\end{lstlisting}
+
+如果使用文件输出输出可以使用
+\begin{lstlisting}
+#!/bin/bash
+g++ $1.cpp -o $1 -g -O2 -std=c++20 \
+-Wall -fsanitize=undefined -fsanitize=address \
+&& echo compile_successfully >&2 && ./$1 < in.txt > out.txt
+\end{lstlisting}
+
+以下是一个在Mac OS 下可以使用的脚本
+\begin{lstlisting}
+#!/bin/zsh
+g++-11 $1.cpp -o $1 -g -O2 -std=c++20 \
+-Wall -fsanitize=undefined -fsanitize=address \
+&& echo compile_successfully >&2 && ./$1
+\end{lstlisting}
